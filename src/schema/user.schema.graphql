@@ -1,0 +1,22 @@
+type Query {
+  # hello: String!
+  user(id: Int!): User
+  me: User
+}
+
+type User {
+  id: Int!
+  account: String!
+  password: String!
+  name: String!
+  birthday: String!
+}
+
+type Token {
+  token: String!
+}
+
+type Mutation {
+  addUser(id: Int!, account: String!, password: String!, name: String!, birthday: String!): User!
+  login(account: String!, password: String!): Token!
+}
