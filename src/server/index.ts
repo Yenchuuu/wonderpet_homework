@@ -5,16 +5,13 @@ import jwt from 'jsonwebtoken'
 // 為讀取graphql檔案
 import * as path from 'path';
 import * as fs from 'fs';
-import { resolvers } from '../resolvers/user.resolvers';
+import { resolvers } from '../resolvers/resolvers';
 
-interface MyContext {
-  token?: String;
-}
 
 async function serverRun() {
   
 const server = new ApolloServer({
-  typeDefs: fs.readFileSync(path.join(__dirname, '../schema/user.schema.graphql'), 'utf8'),
+  typeDefs: fs.readFileSync(path.join(__dirname, '../schema/schema.graphql'), 'utf8'),
   resolvers,
   context: ({ req }) => {
     let token = req.headers['authorization'];
@@ -33,6 +30,6 @@ const server = new ApolloServer({
 });
 
 const { url } = await server.listen(env.PORT);
-console.log(`Server ready at ${url}`);
+  console.log(`Server ready at ${url}`);
 }
 serverRun()

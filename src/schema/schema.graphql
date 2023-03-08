@@ -1,7 +1,10 @@
 type Query {
   # hello: String!
   user(id: Int!): User
+  users: [User]
   me: User
+  product: [Product],
+  products: [Product]
 }
 
 type User {
@@ -19,4 +22,15 @@ type Token {
 type Mutation {
   addUser(id: Int!, account: String!, password: String!, name: String!, birthday: String!): User!
   login(account: String!, password: String!): Token!
+}
+
+type Product {
+  id: Int!
+  name: String!
+  price: Int!
+  category: String!
+  description: String
+  membership: Int!
+  main_image: String!
+  sub_images: [String!]
 }

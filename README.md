@@ -2,6 +2,8 @@
 
 > 1. `login()`: 以使用者帳號及密碼進行登入並取得 JWT token
 > 2. `me()`: 從 HTTP 標頭 `Authorization` 取得 JWT token 確認使用者身份後，回傳當前的使用者資料
+> 3. `products()`: 取得商品清單
+> 4. `product()` : 依使用者的會員身份回傳商品清單（分為一般商品與會員限定商品）
 
 ### 程式啟動方式
 
@@ -97,6 +99,29 @@
     // 3. token 過期
     "errors message": "Context creation failed: Invalid token."
     ```
+
+  - *products* 可使用 query 取得商品清單
+    ```
+    query Products {
+      products {
+        name
+      }
+    }
+    ```
+
+  - *product* 以header 是否帶有 jwt token 判斷使用者可瀏覽之商品品項
+    ```
+    query Product {
+      product {
+        id
+        name
+        price
+        membership
+        main_image
+      }
+    }
+    ```
+    已登入的會員才可看到 <會員限定> 商品
 
 
 

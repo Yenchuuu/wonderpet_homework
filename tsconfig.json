@@ -11,7 +11,7 @@
     "target": "es2017",
     "types": ["node"],
     "outDir": "dist",
-    "noImplicitAny": false
+    "noImplicitAny": false //如果改為true會把所有型別為any的變數變成紅蚯蚓
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
