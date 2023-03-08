@@ -26,8 +26,7 @@
 
 ### 程式架構
 
-  - 將架構拆分為`server`, `schema` 以及 `resolvers`，基於目前僅有user相關API而未來可能擴充之考量，故檔名以user命名
-    若後續有product(舉例)之API需求，則可新增`product.schema` 以及 `product.resolvers` 便能清楚地依照檔名分門別類
+  - 將架構拆分為`server`, `schema` 以及 `resolvers`
 
   - 因未將使用者資料存入資料庫，故以 `mock_data.ts` 模擬
 
